@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オセロゲーム - 新規登録</title>
+    <!-- Bulma CSSフレームワークを読み込み -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <!-- Font Awesomeアイコンを読み込み -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- メインセクション -->
+    <section class="section">
+        <div class="container">
+            <!-- 中央に配置 -->
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <!-- 登録フォームのボックス -->
+                    <div class="box">
+                        <!-- タイトル部分 -->
+                        <h1 class="title has-text-centered">オセロゲーム</h1>
+                        <h2 class="subtitle has-text-centered">新規登録</h2>
+                        
+                        <!-- エラーメッセージ表示領域 -->
+                        <div th:if="${error}" class="notification is-danger" th:text="${error}"></div>
+                        
+                        <!-- 登録フォーム -->
+                        <form action="/register" method="post">
+                            <!-- ユーザーID入力フィールド -->
+                            <div class="field">
+                                <label class="label" for="userId">ユーザーID</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text" id="userId" name="userId" placeholder="ユーザーID" required>
+                                    <!-- 左側のアイコン -->
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- パスワード入力フィールド -->
+                            <div class="field">
+                                <label class="label" for="password">パスワード</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="password" id="password" name="password" placeholder="パスワード" required>
+                                    <!-- 左側のアイコン -->
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- 登録ボタン -->
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary is-fullwidth">登録</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!-- ログインページへのリンク -->
+                        <div class="has-text-centered mt-5">
+                            <p>すでにアカウントをお持ちの方は<a href="/login">こちら</a>からログイン</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
